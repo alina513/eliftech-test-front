@@ -13,6 +13,17 @@ export const Title = styled.h2`
   font-size: 16px;
   margin-top: 0px;
 `;
+export const Date = styled.p`
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: 600;
+`;
+
+export const Organizer = styled.p`
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: 600;
+`;
 
 export const Description = styled.p`
   font-size: 12px;

@@ -4,15 +4,16 @@ import { addParticipant } from '../../helpers/helpers';
 import { Wrapper, Button, Input, Label, Radio } from './Form.styled';
 import toast from 'react-hot-toast';
 
-const FormReg = ({ event_id }) => {
+const FormReg = ({ event_id, closeModal}) => {
   const handleSubmit = async (values, actions) => {
     try {
       const eventsData = await addParticipant({ event_id, ...values });
       toast.success('Успішно зареєстровано!');
       actions.resetForm();
+      closeModal();
       return eventsData;
     } catch (error) {
-      toast.error('Будь ласка, спробуйте завантажити сторінку ще раз');
+      toast.error('Ви неправильно заповнили форму');
     }
   };
 

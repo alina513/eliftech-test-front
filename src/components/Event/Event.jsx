@@ -3,6 +3,8 @@ import { ModalRegisration } from '../Modal/Modal';
 import {
   Title,
   Container,
+  Organizer,
+  Date,
   View,
   Register,
   Description,
@@ -15,6 +17,8 @@ export default function Event({ event }) {
     <Container>
       <Title>{event.name}</Title>
       <Description>{event.description}</Description>
+      <Organizer>{event.organizer}</Organizer>
+      <Date>{event.date}</Date>
       <Wrapper>
         <Register
           onClick={() => {

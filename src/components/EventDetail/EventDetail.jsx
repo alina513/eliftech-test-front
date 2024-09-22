@@ -6,7 +6,6 @@ export default function EventDetail({ participants }) {
     <>
       {participants.length > 0 && (
         <Container>
-          {' '}
           <ListParticipant participants={participants} />
           <Button to="/">Go to events</Button>
         </Container>
