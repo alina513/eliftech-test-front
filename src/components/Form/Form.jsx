@@ -1,10 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
+import DatePicker from '@n3/react-date-picker'
+import '@n3/react-date-picker/dist/n3-date-picker.css'
 import { Formik, Field } from 'formik';
 import { addParticipant } from '../../helpers/helpers';
 import { Wrapper, Button, Input, Label, Radio } from './Form.styled';
 import toast from 'react-hot-toast';
 
 const FormReg = ({ event_id, closeModal}) => {
+  const [startDate, setStartDate] = useState(null);
+
   const handleSubmit = async (values, actions) => {
     try {
       const eventsData = await addParticipant({ event_id, ...values });
@@ -30,9 +35,14 @@ const FormReg = ({ event_id, closeModal}) => {
           ) {
             errors.email = 'Invalid email address';
           }
+          if (!startDate) {
+            errors.birth = 'Required';}
           return errors;
         }}
-        onSubmit={handleSubmit}
+       
+        onSubmit={(values, actions) => {
+          handleSubmit({ ...values, birth: startDate }, actions); // Додаємо дату до значень форми
+        }}
       >
         {({
           values,
@@ -48,7 +58,6 @@ const FormReg = ({ event_id, closeModal}) => {
             <Input
               name="fullname"
               onChange={handleChange}
-              onBlur={handleBlur}
               value={values.fullname}
               id="fullname"
             />
@@ -57,19 +66,17 @@ const FormReg = ({ event_id, closeModal}) => {
               type="email"
               name="email"
               onChange={handleChange}
-              onBlur={handleBlur}
               value={values.email}
               id="email"
             />
             {errors.email && touched.email && errors.email}
             <Label htmlFor="birth">Date of birth</Label>
-            <Input
-              name="birth"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.birth}
-              id="birth"
+             <DatePicker
+              value={startDate}
+              onChange={(date) => setStartDate(date)} 
             />
+            {errors.birth && touched.birth && <div>{errors.birth}</div>}
+
 
             <div id="source">Where did you hear about this event?</div>
             <Radio role="group" aria-labelledby="source">

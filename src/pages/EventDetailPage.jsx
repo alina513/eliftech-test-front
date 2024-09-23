@@ -11,6 +11,7 @@ import { Loader } from 'components/Loader';
 export default function EventDetailPage() {
   const id = useParams().eventId;
   const [members, setMembers] = useState([]);
+  const [filtredMembers, setFiltredMembers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function EventDetailPage() {
           member => member.event_id === id
         );
         setMembers(participant);
+        setFiltredMembers(participant);
       } catch (error) {
         toast.error('Please, try loading page again');
       } finally {
@@ -31,10 +33,24 @@ export default function EventDetailPage() {
     getMembersData(); 
   }, [id]);
 
+  const onChangeInputParticipentsHandler = (e, name) => {
+    const value = e.target.value.toLowerCase().trim();
+    if (value === '') {
+      setFiltredMembers(members);  
+      return;
+    }
+    const result = members.filter((element) => {
+      return element[name].toLowerCase().includes(value);
+    });
+  
+    setFiltredMembers(result);
+    
+  };
+
   return (
     <>
       {loading && <Loader />}
-      <EventDetail participants={members} />
+      <EventDetail participants={filtredMembers} onChangeInputParticipentsHandler={onChangeInputParticipentsHandler}/>
       <Toaster />
     </>
   );

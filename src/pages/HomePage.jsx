@@ -9,6 +9,7 @@ import { Loader } from 'components/Loader';
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function HomePage() {
         setLoading(true);
         const eventsData = await fetchEvents();
         setEvents(eventsData);
+        setFilteredEvents(eventsData);
       } catch (error) {
         toast.error('Please, try loading page again');
       } finally {
@@ -25,11 +27,29 @@ export default function HomePage() {
     };
     getEventsData();
   }, []);
+
+  
+  const onChangeInputHandler = (e, name) => {
+    const value = e.target.value.toLowerCase().trim();
+    if (value === '') {
+      setFilteredEvents(events);  
+      return;
+    }
+    const result = events.filter((element) => {
+      return element[name].toLowerCase().includes(value);
+    });
+  
+    setFilteredEvents(result);
+    
+  };
+
   return (
     <>
       {loading && <Loader />}
-      <Home events={events} />
+      <Home events={filteredEvents} onChangeInputHandler = {onChangeInputHandler} />
       <Toaster />
     </>
   );
 }
+
+

@@ -1,9 +1,11 @@
 import ListParticipant from '../ListPartisipants/ListParticipants';
 import { Button, Container } from './EventDetail.styled';
+import { Filter } from '../FilterParticipants/FilterParticipants';
 
-export default function EventDetail({ participants }) {
+export default function EventDetail({ participants, onChangeInputParticipentsHandler }) {
   return (
     <>
+    <Filter onChangeInputParticipentsHandler = {onChangeInputParticipentsHandler}></Filter>
       {participants.length > 0 && (
         <Container>
           <ListParticipant participants={participants} />
