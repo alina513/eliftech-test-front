@@ -30,27 +30,29 @@ export default function EventDetailPage() {
         setLoading(false);
       }
     };
-    getMembersData(); 
+    getMembersData();
   }, [id]);
 
   const onChangeInputParticipentsHandler = (e, name) => {
     const value = e.target.value.toLowerCase().trim();
     if (value === '') {
-      setFiltredMembers(members);  
+      setFiltredMembers(members);
       return;
     }
-    const result = members.filter((element) => {
+    const result = members.filter(element => {
       return element[name].toLowerCase().includes(value);
     });
-  
+
     setFiltredMembers(result);
-    
   };
 
   return (
     <>
       {loading && <Loader />}
-      <EventDetail participants={filtredMembers} onChangeInputParticipentsHandler={onChangeInputParticipentsHandler}/>
+      <EventDetail
+        participants={filtredMembers}
+        onChangeInputParticipentsHandler={onChangeInputParticipentsHandler}
+      />
       <Toaster />
     </>
   );

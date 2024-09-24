@@ -28,27 +28,27 @@ export default function HomePage() {
     getEventsData();
   }, []);
 
-  
   const onChangeInputHandler = (e, name) => {
     const value = e.target.value.toLowerCase().trim();
     if (value === '') {
-      setFilteredEvents(events);  
+      setFilteredEvents(events);
       return;
     }
-    const result = events.filter((element) => {
+    const result = events.filter(element => {
       return element[name].toLowerCase().includes(value);
     });
-  
+
     setFilteredEvents(result);
-    
   };
 
   return (
     <>
       {loading && <Loader />}
-      <Home events={filteredEvents} onChangeInputHandler = {onChangeInputHandler} />
+      <Home
+        events={filteredEvents}
+        onChangeInputHandler={onChangeInputHandler}
+      />
       <Toaster />
     </>
   );
 }
-

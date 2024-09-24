@@ -38,7 +38,10 @@ export const ModalRegisration = ({
         contentLabel="More info modal"
       >
         <Wrapper>
-          <FormReg event_id={event_id} closeModal={() => setIsOpenModalRegistration(false)}/>
+          <FormReg
+            event_id={event_id}
+            closeModal={() => setIsOpenModalRegistration(false)}
+          />
         </Wrapper>
       </Modal>
     </>

@@ -15,7 +15,7 @@ import {
   RadioLabel,
   FieldFormic,
   TextRadio,
-  ErrorMessage
+  ErrorMessage,
 } from './Form.styled';
 import toast from 'react-hot-toast';
 import sprite from '../../assets/sprite.svg';
@@ -85,8 +85,8 @@ const FormReg = ({ event_id, closeModal }) => {
               value={values.fullname}
               id="fullname"
             />
-              {errors.fullname && touched.fullname && (
-              <ErrorMessage>{errors.fullname}</ErrorMessage>  
+            {errors.fullname && touched.fullname && (
+              <ErrorMessage>{errors.fullname}</ErrorMessage>
             )}
 
             <Label htmlFor="email">Email</Label>
@@ -97,9 +97,9 @@ const FormReg = ({ event_id, closeModal }) => {
               value={values.email}
               id="email"
             />
-            
+
             {errors.email && touched.email && (
-              <ErrorMessage>{errors.email}</ErrorMessage>  // 
+              <ErrorMessage>{errors.email}</ErrorMessage> //
             )}
 
             <Label htmlFor="birth">Date of birth</Label>
@@ -107,11 +107,10 @@ const FormReg = ({ event_id, closeModal }) => {
               value={startDate}
               onChange={date => setStartDate(date)}
             />
-            
-            {errors.birth && touched.birth && (
-              <ErrorMessage>{errors.birth}</ErrorMessage>  
-            )}
 
+            {errors.birth && touched.birth && (
+              <ErrorMessage>{errors.birth}</ErrorMessage>
+            )}
 
             <TextRadio id="source">
               Where did you hear about this event?

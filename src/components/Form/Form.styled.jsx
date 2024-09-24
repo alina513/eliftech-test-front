@@ -39,11 +39,10 @@ export const Input = styled.input`
 `;
 
 export const Wrapper = styled.div`
-// position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  
 `;
 
 export const Label = styled.label`
@@ -68,25 +67,25 @@ export const Radio = styled.div`
   margin-top: 10px;
 `;
 export const ButtonClose = styled.button`
-border: none;
-background-color: transparent;
-cursor: pointer;
-padding: 0px;
-position: absolute;
-top: 10px;
-right: 10px;
-`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
 export const Svg = styled.svg`
-fill: black;`
+  fill: black;
+`;
 
-export const RadioLabel = styled.label`
-`
+export const RadioLabel = styled.label``;
 export const FieldFormic = styled(Field)`
-margin-right: 10px;
-`
+  margin-right: 10px;
+`;
 export const TextRadio = styled.div`
-margin-top: 10px;
-`
+  margin-top: 10px;
+`;
 export const ErrorMessage = styled.div`
   color: red;
   font-size: 14px;

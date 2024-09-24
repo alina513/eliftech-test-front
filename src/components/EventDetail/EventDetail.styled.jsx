@@ -26,4 +26,5 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-padding: 30px;`
+  padding: 30px;
+`;

@@ -7,7 +7,7 @@ export const ListEvent = styled.ul`
   padding: 20px;
   border: 1px solid green;
   border-radius: 12px;
-  // display: flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 20px;
 `;
