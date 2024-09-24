@@ -8,6 +8,6 @@ export const ListEvent = styled.ul`
   border: 1px solid green;
   border-radius: 12px;
   // display: flex;
-  // flex-wrap: wrap;
-  // gap: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
 `;

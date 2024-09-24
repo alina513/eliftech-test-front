@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 200px;
-  height: 150px;
+  height: 200px;
   border: 1px solid green;
   border-radius: 12px;
-  padding: 5px 5px;
+  padding: 5px 10px;
 `;
 
 export const Title = styled.h2`

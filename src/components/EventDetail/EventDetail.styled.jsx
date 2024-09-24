@@ -24,3 +24,6 @@ export const Button = styled(Link)`
 export const Container = styled.div`
   display: block;
 `;
+
+export const Wrapper = styled.div`
+padding: 30px;`

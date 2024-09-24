@@ -1,16 +1,17 @@
+import { Title, Label, Input, Container } from "./FilterMainPage.styled";
 export const Filter = ({onChangeInputHandler, event}) => {
   return (
-    <>
-      <p>Sort events</p>
-      <label>
-        by title<input onChange={(e) => onChangeInputHandler(e, 'name')}></input>
-      </label>
-      <label>
-        by date<input onChange={(e) => onChangeInputHandler(e, 'date')}></input>
-      </label>
-      <label>
-        by organizer<input onChange={(e) => onChangeInputHandler(e, 'organizer')}></input>
-      </label>
-    </>
+    <Container>
+      <Title>Sort events</Title>
+      <Label>
+        by title<Input onChange={(e) => onChangeInputHandler(e, 'name')}></Input>
+      </Label>
+      <Label>
+        by date<Input onChange={(e) => onChangeInputHandler(e, 'date')}></Input>
+      </Label>
+      <Label>
+        by organizer<Input onChange={(e) => onChangeInputHandler(e, 'organizer')}></Input>
+      </Label>
+    </Container>
   );
 };

@@ -1,13 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
-import DatePicker from '@n3/react-date-picker'
-import '@n3/react-date-picker/dist/n3-date-picker.css'
-import { Formik, Field } from 'formik';
+import DatePicker from '@n3/react-date-picker';
+import '@n3/react-date-picker/dist/n3-date-picker.css';
+import { Formik } from 'formik';
 import { addParticipant } from '../../helpers/helpers';
-import { Wrapper, Button, Input, Label, Radio } from './Form.styled';
+import {
+  Wrapper,
+  Button,
+  Input,
+  Label,
+  Radio,
+  ButtonClose,
+  Svg,
+  RadioLabel,
+  FieldFormic,
+  TextRadio,
+  ErrorMessage
+} from './Form.styled';
 import toast from 'react-hot-toast';
+import sprite from '../../assets/sprite.svg';
 
-const FormReg = ({ event_id, closeModal}) => {
+const FormReg = ({ event_id, closeModal }) => {
   const [startDate, setStartDate] = useState(null);
 
   const handleSubmit = async (values, actions) => {
@@ -24,24 +37,36 @@ const FormReg = ({ event_id, closeModal}) => {
 
   return (
     <Wrapper>
+      <ButtonClose onClick={closeModal}>
+        <Svg width="20" height="20">
+          <use xlinkHref={sprite + '#icon-close'}></use>
+        </Svg>
+      </ButtonClose>
       <Formik
         initialValues={{ fullname: '', email: '', birth: '', source: '' }}
         validate={values => {
           const errors = {};
+
+          if (!values.fullname) {
+            errors.fullname = 'Required';
+          } else if (values.fullname.length < 3) {
+            errors.fullname = 'Full Name must be at least 3 characters long';
+          }
+
           if (!values.email) {
             errors.email = 'Required';
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
           ) {
-            errors.email = 'Invalid email address';
+            errors.email = 'Invalid email address. Example: exam@com.ua';
           }
           if (!startDate) {
-            errors.birth = 'Required';}
+            errors.birth = 'Required';
+          }
           return errors;
         }}
-       
         onSubmit={(values, actions) => {
-          handleSubmit({ ...values, birth: startDate }, actions); // Додаємо дату до значень форми
+          handleSubmit({ ...values, birth: startDate }, actions);
         }}
       >
         {({
@@ -49,7 +74,6 @@ const FormReg = ({ event_id, closeModal}) => {
           errors,
           touched,
           handleChange,
-          handleBlur,
           handleSubmit,
           isSubmitting,
         }) => (
@@ -61,6 +85,10 @@ const FormReg = ({ event_id, closeModal}) => {
               value={values.fullname}
               id="fullname"
             />
+              {errors.fullname && touched.fullname && (
+              <ErrorMessage>{errors.fullname}</ErrorMessage>  
+            )}
+
             <Label htmlFor="email">Email</Label>
             <Input
               type="email"
@@ -69,29 +97,38 @@ const FormReg = ({ event_id, closeModal}) => {
               value={values.email}
               id="email"
             />
-            {errors.email && touched.email && errors.email}
+            
+            {errors.email && touched.email && (
+              <ErrorMessage>{errors.email}</ErrorMessage>  // 
+            )}
+
             <Label htmlFor="birth">Date of birth</Label>
-             <DatePicker
+            <DatePicker
               value={startDate}
-              onChange={(date) => setStartDate(date)} 
+              onChange={date => setStartDate(date)}
             />
-            {errors.birth && touched.birth && <div>{errors.birth}</div>}
+            
+            {errors.birth && touched.birth && (
+              <ErrorMessage>{errors.birth}</ErrorMessage>  
+            )}
 
 
-            <div id="source">Where did you hear about this event?</div>
+            <TextRadio id="source">
+              Where did you hear about this event?
+            </TextRadio>
             <Radio role="group" aria-labelledby="source">
-              <label>
-                <Field type="radio" name="source" value=" Social media" />
+              <RadioLabel>
+                <FieldFormic type="radio" name="source" value=" Social media" />
                 Social media
-              </label>
-              <label>
-                <Field type="radio" name="source" value="Friends" />
+              </RadioLabel>
+              <RadioLabel>
+                <FieldFormic type="radio" name="source" value="Friends" />
                 Friends
-              </label>
-              <label>
-                <Field type="radio" name="source" value="Found myself" />
+              </RadioLabel>
+              <RadioLabel>
+                <FieldFormic type="radio" name="source" value="Found myself" />
                 Found myself
-              </label>
+              </RadioLabel>
             </Radio>
 
             <Button type="submit">Submit</Button>

@@ -1,13 +1,14 @@
+import { Container, Title, Label,Input } from "./FilterParticipants.styled"
 export const Filter = ({onChangeInputParticipentsHandler}) => {
     return(
-        <>
-        <p>Sort participants</p>
-      <label>
-        by fullname<input onChange={(e) => onChangeInputParticipentsHandler(e, 'fullname')}></input>
-      </label>
-      <label>
-        by email<input onChange={(e) => onChangeInputParticipentsHandler(e, 'email')}></input>
-      </label>
-        </>
+        <Container>
+        <Title>Sort participants</Title>
+      <Label>
+        by fullname<Input onChange={(e) => onChangeInputParticipentsHandler(e, 'fullname')}></Input>
+      </Label>
+      <Label>
+        by email<Input onChange={(e) => onChangeInputParticipentsHandler(e, 'email')}></Input>
+      </Label>
+        </Container>
     )
 }
