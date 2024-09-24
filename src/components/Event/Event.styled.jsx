@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
-  width: 200px;
+export const Container = styled.li`
+  box-sizing: border-box;
+  width: 386px;
+  list-style: none;
   height: 200px;
   border: 1px solid green;
   border-radius: 12px;
