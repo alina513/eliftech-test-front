@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/eliftech-test-front/static/css/main.7acaea2f.css",
-    "main.js": "/eliftech-test-front/static/js/main.7a3b5777.js",
+    "main.js": "/eliftech-test-front/static/js/main.02fa6656.js",
     "static/css/478.ea1cce34.chunk.css": "/eliftech-test-front/static/css/478.ea1cce34.chunk.css",
-    "static/js/478.5b639c96.chunk.js": "/eliftech-test-front/static/js/478.5b639c96.chunk.js",
-    "static/js/970.b2584cc7.chunk.js": "/eliftech-test-front/static/js/970.b2584cc7.chunk.js",
+    "static/js/478.f7a45086.chunk.js": "/eliftech-test-front/static/js/478.f7a45086.chunk.js",
+    "static/js/970.b282d4bb.chunk.js": "/eliftech-test-front/static/js/970.b282d4bb.chunk.js",
     "static/js/291.af038b78.chunk.js": "/eliftech-test-front/static/js/291.af038b78.chunk.js",
     "static/js/104.7d11664b.chunk.js": "/eliftech-test-front/static/js/104.7d11664b.chunk.js",
     "index.html": "/eliftech-test-front/index.html",
     "static/media/sprite.svg": "/eliftech-test-front/static/media/sprite.f09039bea3fc2f4509c418aa6dc1cbe0.svg",
     "main.7acaea2f.css.map": "/eliftech-test-front/static/css/main.7acaea2f.css.map",
-    "main.7a3b5777.js.map": "/eliftech-test-front/static/js/main.7a3b5777.js.map",
+    "main.02fa6656.js.map": "/eliftech-test-front/static/js/main.02fa6656.js.map",
     "478.ea1cce34.chunk.css.map": "/eliftech-test-front/static/css/478.ea1cce34.chunk.css.map",
-    "478.5b639c96.chunk.js.map": "/eliftech-test-front/static/js/478.5b639c96.chunk.js.map",
-    "970.b2584cc7.chunk.js.map": "/eliftech-test-front/static/js/970.b2584cc7.chunk.js.map",
+    "478.f7a45086.chunk.js.map": "/eliftech-test-front/static/js/478.f7a45086.chunk.js.map",
+    "970.b282d4bb.chunk.js.map": "/eliftech-test-front/static/js/970.b282d4bb.chunk.js.map",
     "291.af038b78.chunk.js.map": "/eliftech-test-front/static/js/291.af038b78.chunk.js.map",
     "104.7d11664b.chunk.js.map": "/eliftech-test-front/static/js/104.7d11664b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.7a3b5777.js"
+    "static/js/main.02fa6656.js"
   ]
 }
